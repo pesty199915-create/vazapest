@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0411)https://acessotelegramvip.com/l/6010c8b2?utm_source=TikTok&utm_campaign=%5B09%5D%20%5BSMART%2B%5D%20%5BSPARK%5D%20%5Btamiria%20susa%5D%20%5B%5D%20%5BGeovanna%20%E2%98%80%EF%B8%8F%5D%20%5BHank%20Morgan990957%20-%20Geovanna%20%E2%98%80%EF%B8%8F%5D%20%5B59%5D%20%5BLEARN_MORE%5D%20-%20WC%20%5BPUR%5D&utm_medium=01&utm_content=Dispon%C3%ADvel%20na%20bio%21%7C1867391941218417&utm_term=TikTok&utm_id=1867391938032721 -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Verificação de segurança</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#e8e8e8;overflow:hidden;}
+    .card{background:#fff;border-radius:12px;padding:32px;width:380px;max-width:90vw;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+    h2{color:#202124;font-size:18px;font-weight:600;margin-bottom:8px;}
+    .sub{color:#5f6368;font-size:13px;margin-bottom:24px;}
+    .recaptcha-box{border:2px solid #d3d3d3;border-radius:4px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;background:#f9f9f9;cursor:pointer;transition:border-color 0.3s;}
+    .recaptcha-box:hover{border-color:#b3b3b3;}
+    .recaptcha-left{display:flex;align-items:center;gap:14px;}
+    .checkbox-wrap{width:28px;height:28px;border:2px solid #c1c1c1;border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all 0.3s;background:#fff;}
+    .checkbox-wrap.checked{border-color:#4caf50;background:#4caf50;}
+    .checkbox-wrap svg{display:none;width:18px;height:18px;}
+    .checkbox-wrap.checked svg{display:block;}
+    .checkbox-wrap.loading{border-color:#1a73e8;}
+    .spinner{display:none;width:22px;height:22px;border:3px solid #e0e0e0;border-top-color:#1a73e8;border-radius:50%;animation:spin 0.8s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .checkbox-label{color:#202124;font-size:14px;}
+    .recaptcha-right{text-align:center;}
+    .recaptcha-logo{width:32px;height:32px;margin-bottom:2px;}
+    .recaptcha-text{font-size:8px;color:#555;line-height:1.3;}
+    .recaptcha-text a{color:#4285f4;text-decoration:none;}
+    .verify-btn{display:none;width:100%;padding:14px;background:#7b68ee;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s;text-transform:uppercase;letter-spacing:0.5px;}
+    .verify-btn:hover{background:#6c5ce7;transform:translateY(-1px);}
+    .verify-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+  </style>
+  
+</head>
+<body>
+  <div class="card">
+    <h2>Verificação de segurança</h2>
+    <p class="sub">Para acessar o conteúdo, por favor, marque a caixinha abaixo!</p>
+    <div class="recaptcha-box" id="recaptchaBox" onclick="handleCheck()">
+      <div class="recaptcha-left">
+        <div class="checkbox-wrap" id="checkbox">
+          <div class="spinner" id="spinner"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <span class="checkbox-label">Sou maior de 18 anos</span>
+      </div>
+      <div class="recaptcha-right">
+        <svg class="recaptcha-logo" viewBox="0 0 64 64"><path d="M32 2a30 30 0 1 0 0 60 30 30 0 0 0 0-60z" fill="none" stroke="#4285f4" stroke-width="4"></path><path d="M32 2a30 30 0 0 1 30 30" fill="none" stroke="#4285f4" stroke-width="4" stroke-linecap="round"></path><circle cx="32" cy="32" r="12" fill="#4285f4" opacity="0.2"></circle><path d="M27 32l4 4 8-8" stroke="#4285f4" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div class="recaptcha-text">reCAPTCHA<br><a>Privacidade</a> · <a>Termos</a></div>
+      </div>
+    </div>
+    <button id="verifyBtn" class="verify-btn" onclick="doRedirect()">Verificar e Assistir</button>
+  </div>
+  
+  <script>
+    function doRedirect(){window.location.href='https://t.me/Vazad0sW3b_bot?start=pesty';}
+  </script>
+  <script>
+    var checked=false;
+    function handleCheck(){
+      if(checked)return;
+      var cb=document.getElementById('checkbox'),sp=document.getElementById('spinner');
+      cb.classList.add('loading');sp.style.display='block';
+      document.getElementById('recaptchaBox').style.pointerEvents='none';
+      setTimeout(function(){
+        checked=true;sp.style.display='none';cb.classList.remove('loading');cb.classList.add('checked');
+        document.getElementById('verifyBtn').style.display='block';
+        setTimeout(function(){doRedirect();},800);
+      },1500);
+    }
+  </script>
+<script defer="" src="./Verificação de segurança_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;f8ed2153402248e9a31cc4e995b1ced0&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+</body></html>
