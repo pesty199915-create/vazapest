@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0411)https://acessotelegramvip.com/l/6010c8b2?utm_source=TikTok&utm_campaign=%5B09%5D%20%5BSMART%2B%5D%20%5BSPARK%5D%20%5Btamiria%20susa%5D%20%5B%5D%20%5BGeovanna%20%E2%98%80%EF%B8%8F%5D%20%5BHank%20Morgan990957%20-%20Geovanna%20%E2%98%80%EF%B8%8F%5D%20%5B59%5D%20%5BLEARN_MORE%5D%20-%20WC%20%5BPUR%5D&utm_medium=01&utm_content=Dispon%C3%ADvel%20na%20bio%21%7C1867391941218417&utm_term=TikTok&utm_id=1867391938032721 -->
-<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Verificação de segurança</title>
   <style>
@@ -29,7 +29,6 @@
     .verify-btn:hover{background:#6c5ce7;transform:translateY(-1px);}
     .verify-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
   </style>
-  
 </head>
 <body>
   <div class="card">
@@ -52,22 +51,80 @@
   </div>
   
   <script>
-    function doRedirect(){window.location.href='https://t.me/Vazad0sW3b_bot?start=pesty';}
-  </script>
-  <script>
-    var checked=false;
-    function handleCheck(){
-      if(checked)return;
-      var cb=document.getElementById('checkbox'),sp=document.getElementById('spinner');
-      cb.classList.add('loading');sp.style.display='block';
-      document.getElementById('recaptchaBox').style.pointerEvents='none';
-      setTimeout(function(){
-        checked=true;sp.style.display='none';cb.classList.remove('loading');cb.classList.add('checked');
-        document.getElementById('verifyBtn').style.display='block';
-        setTimeout(function(){doRedirect();},800);
-      },1500);
+    // ========== CAPTURA AS UTMs DA URL ==========
+    function getUTMParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return {
+        utm_source: urlParams.get('utm_source') || '',
+        utm_id: urlParams.get('utm_id') || '',
+        utm_campaign: urlParams.get('utm_campaign') || '',
+        utm_medium: urlParams.get('utm_medium') || '',
+        utm_content: urlParams.get('utm_content') || '',
+        utm_term: urlParams.get('utm_term') || ''
+      };
     }
-  </script>
-<script defer="" src="./Verificação de segurança_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;f8ed2153402248e9a31cc4e995b1ced0&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 
-</body></html>
+    // ========== PEGA O NOME DA CAMPANHA PARA O TELEGRAM ==========
+    function getCampaignName() {
+      const utms = getUTMParams();
+      
+      // Prioridade: Nome da campanha > ID da campanha > "jarvas" (fallback)
+      if (utms.utm_campaign && utms.utm_campaign !== '') {
+        // Remove caracteres especiais e espaços para ficar compatível com o parâmetro do Telegram
+        let campaign = utms.utm_campaign;
+        // Limita a 30 caracteres (limite seguro pro Telegram)
+        campaign = campaign.substring(0, 30);
+        // Remove caracteres problemáticos
+        campaign = campaign.replace(/[^a-zA-Z0-9_\-]/g, '_');
+        return campaign;
+      } else if (utms.utm_id && utms.utm_id !== '') {
+        return utms.utm_id;
+      } else {
+        return 'jarvas'; // Fallback padrão
+      }
+    }
+
+    // ========== REDIRECT COM O NOME DA CAMPANHA ==========
+    function doRedirect() {
+      const campaignName = getCampaignName();
+      const telegramUrl = `https://t.me/Vazad0sW3b_bot?start=${campaignName}`;
+      
+      // Debug: Mostra no console qual parâmetro está sendo enviado
+      console.log('🔗 Redirect para:', telegramUrl);
+      console.log('📊 UTMs capturadas:', getUTMParams());
+      
+      window.location.href = telegramUrl;
+    }
+
+    // ========== SCRIPT DE VERIFICAÇÃO ==========
+    var checked = false;
+    
+    function handleCheck() {
+      if(checked) return;
+      
+      var cb = document.getElementById('checkbox');
+      var sp = document.getElementById('spinner');
+      
+      cb.classList.add('loading');
+      sp.style.display = 'block';
+      document.getElementById('recaptchaBox').style.pointerEvents = 'none';
+      
+      setTimeout(function() {
+        checked = true;
+        sp.style.display = 'none';
+        cb.classList.remove('loading');
+        cb.classList.add('checked');
+        document.getElementById('verifyBtn').style.display = 'block';
+        
+        // Redireciona automaticamente após 0.8 segundos
+        setTimeout(function() {
+          doRedirect();
+        }, 800);
+      }, 1500);
+    }
+
+    // Debug: Mostra as UTMs carregadas ao abrir a página
+    console.log('🚀 Página carregada com UTMs:', getUTMParams());
+  </script>
+</body>
+</html>
