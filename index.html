@@ -68,7 +68,7 @@
     function getCampaignName() {
       const utms = getUTMParams();
       
-      // Prioridade: Nome da campanha > ID da campanha > "jarvas" (fallback)
+      // Prioridade: Nome da campanha > ID da campanha > "pesty01" (fallback)
       if (utms.utm_campaign && utms.utm_campaign !== '') {
         // Remove caracteres especiais e espaços para ficar compatível com o parâmetro do Telegram
         let campaign = utms.utm_campaign;
@@ -80,7 +80,7 @@
       } else if (utms.utm_id && utms.utm_id !== '') {
         return utms.utm_id;
       } else {
-        return 'jarvas'; // Fallback padrão
+        return 'pesty01'; // Fallback padrão
       }
     }
 
